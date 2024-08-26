@@ -1,0 +1,8 @@
+# Ignore PDF files
+*.pdf
+
+# Ignore the "inputs" folder
+/inputs/
+
+# Ignore the "venv" folder
+/venv/
