@@ -1,5 +1,6 @@
 import pm4py
 import numpy as np
+import sys
 from collections import defaultdict
 
 # Load the XES files
@@ -87,13 +88,13 @@ def analyze_logs(log_path, support_threshold, deviation_threshold):
 
 
 if __name__ == '__main__':
-    log_path = '.\\inputs\\bpi2018.xes'
+    log_path = sys.argv[1]  # path to the XES log file
     support_threshold = 5  # minimum support to consider a pattern
     deviation_threshold = 10  # threshold for violation in seconds
 
     # Run analysis
     stats_l1, deviations = analyze_logs(log_path, support_threshold, deviation_threshold)
-
+ 
     # Output results
     for pattern, stats in stats_l1.items():
         print(f"Pattern {pattern}: Mean = {stats['mean']}, Std = {stats['std']}")
