@@ -25,7 +25,7 @@ def split_log_by_rejection(log):
     
     # 2017
     for trace in log:
-        if any(word in trace[-1]['concept:name'] for word in {'A_Pending', 'A_denied', 'A_Cancelled', 'A_Approved'}):
+        if any(word in trace[-1]['concept:name'] for word in {'A_Pending', 'A_Denied', 'A_Cancelled', 'A_Approved'}):
             success_log.append(trace)
         else:
             fail_log.append(trace)    
@@ -83,8 +83,6 @@ def analyze_logs(log_path):
     # Preprocess: Split log into success and failure logs based on 'rejected' attribute
     log_l1, log_l2 = split_log_by_rejection(log)
     
-    print(log_l1[0])
-
     support_threshold = 1 # * len(log)
     
     # Extract patterns and calculate their statistics
